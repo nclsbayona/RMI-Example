@@ -1,0 +1,5 @@
+1,ZapatosAdidas,7
+2,PantalonesVerdesXL,3
+3,CosmeticosVeganos,10
+4,PolvoParaHornear,19
+5,CamisetaEstrellada,2
