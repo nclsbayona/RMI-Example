@@ -7,6 +7,17 @@ import java.util.ArrayList;
 public class Tienda implements InterfazMetodos {
 
     private ArrayList<Articulo> articulos;
+    private String filename;
+
+    private void escribirArticulos() {
+        DataOutputStream outstream= new DataOutputStream(new FileOutputStream(new File(filename);,false));
+        String body = "";
+        for (Articulo articulo : articulos) {
+            body += articulo.getAsCSV() + "\n";
+        }
+        outstream.write(body.getBytes());
+        outstream.close(); 
+    }
 
     private Articulo getArticulo(int id) {
         for (Articulo articulo : articulos)
@@ -28,6 +39,7 @@ public class Tienda implements InterfazMetodos {
             if (art.getAmount() > 0) {
                 art.decrementAmount();
                 bought = true;
+                escribirArticulos();
                 if (art.getAmount() == 0)
                     articulos.remove(art);
             }
@@ -38,6 +50,7 @@ public class Tienda implements InterfazMetodos {
     }
 
     public Tienda(String filename) {
+        this.filename=filename;
         articulos = new ArrayList<>();
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             String line;

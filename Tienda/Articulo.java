@@ -21,6 +21,9 @@ public class Articulo implements Serializable {
         this.id=id;
         this.name=name;
     }
+    public String getAsCSV(){
+        return id+","+name+","+amount;
+    }
     public String toString(){
         return "{\n \"id\": "+String.valueOf(id)+"\n \"name\": \""+name+"\"\n \"amount\": "+String.valueOf(amount)+"\n}";
     }

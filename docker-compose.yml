@@ -12,28 +12,24 @@ services:
     ports:
       - 3000:3000
   rmi-server:
-    image: docker.io/openjdk:20-slim-buster
-    command: sleep infinity
+    image: docker.io/nclsbayona/rmi-example:latest
     container_name: rmi-server
     expose:
       - 1100
     volumes:
       - ./:/home
   rmi-client-1:
-    image: docker.io/openjdk:20-slim-buster
-    command: sleep infinity
+    image: docker.io/nclsbayona/rmi-example:latest
     container_name: rmi-client-1
     volumes:
       - ./:/home
   rmi-client-2:
-    image: docker.io/openjdk:20-slim-buster
-    command: sleep infinity
+    image: docker.io/nclsbayona/rmi-example:latest
     container_name: rmi-client-2
     volumes:
       - ./:/home
   rmi-client-3:
-    image: docker.io/openjdk:20-slim-buster
-    command: sleep infinity
+    image: docker.io/nclsbayona/rmi-example:latest
     container_name: rmi-client-3
     volumes:
       - ./:/home
