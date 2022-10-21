@@ -14,14 +14,18 @@ services:
   rmi-server:
     image: docker.io/nclsbayona/rmi-example:latest
     container_name: rmi-server
+    command: sleep infinity
     expose:
       - 1100
   rmi-client-1:
     image: docker.io/nclsbayona/rmi-example:latest
     container_name: rmi-client-1
+    command: sleep infinity
   rmi-client-2:
     image: docker.io/nclsbayona/rmi-example:latest
     container_name: rmi-client-2
+    command: sleep infinity
   rmi-client-3:
     image: docker.io/nclsbayona/rmi-example:latest
     container_name: rmi-client-3
+    command: sleep infinity
