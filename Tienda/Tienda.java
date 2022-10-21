@@ -1,4 +1,7 @@
 import java.io.BufferedReader;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.IOException;
 import java.rmi.RemoteException;
@@ -10,13 +13,17 @@ public class Tienda implements InterfazMetodos {
     private String filename;
 
     private void escribirArticulos() {
-        DataOutputStream outstream= new DataOutputStream(new FileOutputStream(new File(filename);,false));
-        String body = "";
-        for (Articulo articulo : articulos) {
-            body += articulo.getAsCSV() + "\n";
-        }
-        outstream.write(body.getBytes());
-        outstream.close(); 
+        try (DataOutputStream outstream = new DataOutputStream(new FileOutputStream(new File(filename),false))) {
+            String body = "";
+            for (Articulo articulo : articulos) {
+                body += articulo.getAsCSV() + "\n";
+            }
+            outstream.write(body.getBytes());
+            outstream.close();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } 
     }
 
     private Articulo getArticulo(int id) {
