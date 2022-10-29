@@ -5,14 +5,14 @@ on:
     branches:
       - master
     paths:
-      - Dockerfile
+      - Dockerfile-server
   schedule:
     - cron: "0 0 * * */15"
   workflow_dispatch:
 
 env:
  REGISTRY: docker.io
- IMAGE_NAME: rmi-example
+ IMAGE_NAME: rmi-client-example
  USERNAME:  ${{ github.actor }}
 
 concurrency:
@@ -20,7 +20,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  base_container_build:
+ client_container_build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -45,6 +45,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
+          file: Dockerfile-client
           push: true
           tags: ${{ env.REGISTRY }}/${{ env.USERNAME }}/${{ env.IMAGE_NAME }}:latest
           labels: ${{ steps.meta.outputs.labels }}
