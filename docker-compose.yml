@@ -17,12 +17,12 @@ services:
   rmi-client-1:
     image: docker.io/nclsbayona/rmi-client-example:latest
     container_name: rmi-client-1
-    command: sh -c "sleep infinity"
+    command: sleep infinity
   rmi-client-2:
     image: docker.io/nclsbayona/rmi-client-example:latest
     container_name: rmi-client-2
-    command: sh -c "sleep infinity"
+    command: sleep infinity
   rmi-client-3:
     image: docker.io/nclsbayona/rmi-client-example:latest
     container_name: rmi-client-3
-    command: sh -c "sleep infinity"
+    command: sleep infinity
