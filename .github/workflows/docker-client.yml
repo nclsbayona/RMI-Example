@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - Dockerfile-server
+      - Dockerfile-client
   schedule:
     - cron: "0 0 * * */15"
   workflow_dispatch:
