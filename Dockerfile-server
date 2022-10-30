@@ -2,4 +2,4 @@ FROM docker.io/openjdk:20-slim-buster AS build
 COPY ./Tienda/Servidor.java ./Tienda/Tienda.java ./Tienda/Articulo.java ./Tienda/InterfazMetodos.java ./Tienda/articulos.txt /home/
 WORKDIR /home
 RUN javac *.java && apt-get update && apt-get install -y iputils-ping net-tools
-ENTRYPOINT [ "bash" ]
+CMD [ "bash" ]
