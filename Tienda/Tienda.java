@@ -21,7 +21,6 @@ public class Tienda implements InterfazMetodos {
             outstream.write(body.getBytes());
             outstream.close();
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         } 
     }

@@ -3,6 +3,7 @@ services:
   rmi-server:
     image: docker.io/nclsbayona/rmi-server-example:latest
     container_name: rmi-server
+    command: sleep infinity
     expose:
       - 1100
   rmi-client-1:
