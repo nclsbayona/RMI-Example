@@ -1,14 +1,5 @@
 version: "3"
 services:
-  wireshark:
-    image: lscr.io/linuxserver/wireshark:latest
-    container_name: wireshark
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Europe/London
-    ports:
-      - 3000:3000
   rmi-server:
     image: docker.io/nclsbayona/rmi-server-example:latest
     container_name: rmi-server
